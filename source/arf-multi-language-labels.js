@@ -22,16 +22,8 @@ function rendering(self, $element, layout) {
   var extDiv = $("#" + id);
   var showlanguage = layout.showlanguage;
   var showflag = layout.showflag;
-  var blanguage = navigator.language.toLowerCase();
-  if (navigator.language.toLowerCase().length > 3)
-  {
-      var first = navigator.language.toLowerCase().substring(0, 2);
-      var second = navigator.language.toLowerCase().substring(3, 5);
-      if (first === second)
-      {
-          blanguage = first;
-      }
-  }
+  var blanguage = self.$scope.$parent.$root.browserLanguage;
+
   var Search = "", Replace = "", UI = "";
   var html = "";
 
@@ -45,7 +37,7 @@ function rendering(self, $element, layout) {
   });
 
   //Search data and substitute strings
-  for (i = 0; i < tables.length; i++) {
+  for (var i = 0; i < tables.length; i++) {
     self.backendApi.eachDataRow(function (rownum, row) {
       Search = "";
       Replace = "";
@@ -103,6 +95,27 @@ define([
 ], function ($, a, b, c) {
   "use strict";
 
+  /**
+   * Returns the browser language in as either 5 characters as per RFC4646 or 2 character
+   * @public
+   * @see http://tools.ietf.org/html/rfc4646
+   * @return string
+   */
+  function prepareBrowserLanguage() {
+    var browserLanguage,
+      tokens;
+
+      browserLanguage = navigator.language.toLowerCase() || "en-gb";
+      if (browserLanguage.length > 3) {
+        tokens = browserLanguage.split("-");
+        if (tokens[0] === tokens[1]) {
+          browserLanguage = tokens[0];
+        }
+      }
+
+    return browserLanguage;
+  }
+
 
   return $("<style>").html(a).appendTo("head"), {
 
@@ -114,6 +127,7 @@ define([
 
     controller : ["$scope", "$rootScope", function (s, r) {
       console.log(s, r);
+      r.browserLanguage = prepareBrowserLanguage();
     }],
 
 

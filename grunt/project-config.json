@@ -1,0 +1,66 @@
+{
+  "extensionName" : "arf-multi-language-labels",
+
+  "qlikVMExtensionPath" : "/Volumes/C/Users/aef/Documents/Qlik/Sense/Extensions/arf-multi-language-labels",
+
+  "banner" : "/**\n* @@QlikTool-Replace:extension.name - version: @@QlikTool-Replace:version\n* Copyright(C) 2015 Qlik International, All Rights Reserved\n* For support contact: @@QlikTool-Replace:author.name <@@QlikTool-Replace:author.email>\n*/",
+
+  "jshint" : {
+    "files" : [
+      "./*.js",
+      "../source/**/*.js",
+      "../tests/**/*.js",
+      "!../source/vendor/**/*",
+      "!../tests/vendor/**/*"
+    ]
+  },
+
+
+  "copy" : {
+    "build" : {
+      "files" : [
+        "**/*",
+        "!**/_sass/**"
+      ]
+    },
+    "vm" : {
+      "files" : ["**/*"]
+    },
+    "dist" : {
+      "files" : ["**/*"]
+    }
+  },
+
+
+  "replace" : {
+    "dev" : {
+      "files" : [
+        { "src" : "../build/arf-multi-language-labels/arf-multi-language-labels.js", "dest" :  "../build/arf-multi-language-labels/arf-multi-language-labels.js" },
+        { "src" : "../build/arf-multi-language-labels/arf-multi-language-labels.qext", "dest" : "../build/arf-multi-language-labels/arf-multi-language-labels.qext" },
+        { "src" : "../build/arf-multi-language-labels/config/arf-multi-language-labels-properties-panel.js", "dest" : "../build/arf-multi-language-labels/config/arf-multi-language-labels-properties-panel.js" },
+        { "src" : "../build/arf-multi-language-labels/styles/arf-multi-language-labels-style.css", "dest" : "../build/arf-multi-language-labels/styles/arf-multi-language-labels-style.css" }
+      ]
+    },
+    "deploy" : {
+      "files" : [
+        { "src" : "../build/arf-multi-language-labels/arf-multi-language-labels.js", "dest" :  "../build/arf-multi-language-labels/arf-multi-language-labels.js" },
+        { "src" : "../build/arf-multi-language-labels/arf-multi-language-labels.qext", "dest" : "../build/arf-multi-language-labels/arf-multi-language-labels.qext" },
+        { "src" : "../build/arf-multi-language-labels/config/arf-multi-language-labels-properties-panel.js", "dest" : "../build/arf-multi-language-labels/config/arf-multi-language-labels-properties-panel.js" },
+        { "src" : "../build/arf-multi-language-labels/styles/arf-multi-language-labels-style.css", "dest" : "../build/arf-multi-language-labels/styles/arf-multi-language-labels-style.css" }
+      ]
+    }
+  },
+
+  "requirejs" : {
+    "paths" : {
+      "jquery" : "empty:",
+      "text" : "../../../grunt/node_modules/requirejs-text/text",
+      "qlik" : "empty:",
+      "general.utils" : "empty:",
+      "client.utils" : "empty:"
+    },
+    "exclude" : ["text"]
+  }
+
+}
+

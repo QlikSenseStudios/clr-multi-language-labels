@@ -1,0 +1,11 @@
+{
+  "interactive" : true,
+  "color": true,
+  "directory": "../source/app/vendor",
+  "analytics": false,
+  "tmp": "../tmp/cache/bower",
+  "storage" : {
+    "packages": "../tmp/cache/bower"
+  }
+}
+

@@ -1,0 +1,32 @@
+{
+  "camelcase" : true,
+  "curly": true,
+  "eqeqeq" : true,
+  "forin": true,
+  "funcscope": true,
+  "latedef": true,
+  "maxcomplexity": 8,
+  "maxdepth": 5,
+  "maxerr": 10,
+  "maxparams": 10,
+  "newcap": true,
+  "noarg": true,
+  "notypeof": true,
+  "quotmark": true,
+  "shadow": "inner",
+  "undef": false,
+  "unused": true,
+  "evil": false,
+  "strict": true,
+  "browser": true,
+  "debug": true,
+  "globals": {
+    "$": false,
+    "jQuery": false,
+    "angular": true,
+    "module": true,
+    "define": true,
+    "require": true
+  }
+}
+

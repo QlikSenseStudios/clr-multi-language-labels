@@ -1,0 +1,16 @@
+# Tell git to ignore this files:
+app/**
+build/**
+dist/**
+source/app/js/vendor/**
+tmp/**
+resources/**
+grunt/node_modules/**
+.DS_Store
+Thumbs.db
+npm-debug.log
+
+# Don't ignore this files:
+!.gitkeep
+!.gitKeep
+!*/

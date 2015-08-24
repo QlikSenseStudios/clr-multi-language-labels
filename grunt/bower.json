@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "name": "arf-multilanguage",
+  "main": "../source/arf-multi-language-labels.js",
+  "description": "Multi language labels for Qlik Sense",
+  "version": "1.1.0",
+  "authors": [
+    "Andre R. Ferreira <andre.ferreira@qlik.com>",
+    "Corrado Lorefice <Corrado.Lorefice@qlik.com>"
+  ],
+  "license": "Proprietary All rights reserved - Qlik 2015",
+  "moduleType": [
+    "amd"
+  ]
+}

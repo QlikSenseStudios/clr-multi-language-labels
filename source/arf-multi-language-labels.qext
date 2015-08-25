@@ -1,8 +1,0 @@
-{
-  "type": "visualization",
-  "icon": "extension",
-  "name": "@@QlikTool-Replace:extension.name",
-  "description": "@@QlikTool-Replace:extension.description",
-  "version": "@@QlikTool-Replace:version",
-  "author": "@@QlikTool-Replace:author.name <@@QlikTool-Replace:author.email>, Corrado Lorefice <Corrado.Lorefice@qlik.com>"
-}

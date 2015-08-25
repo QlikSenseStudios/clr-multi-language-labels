@@ -1,7 +1,7 @@
 {
-  "extensionName" : "arf-multi-language-labels",
+  "extensionName" : "clr-multi-language-labels",
 
-  "qlikVMExtensionPath" : "/Volumes/C/Users/aef/Documents/Qlik/Sense/Extensions/arf-multi-language-labels",
+  "qlikVMExtensionPath" : "/Volumes/C/Users/aef/Documents/Qlik/Sense/Extensions/clr-multi-language-labels",
 
   "banner" : "/**\n* @@QlikTool-Replace:extension.name - version: @@QlikTool-Replace:version\n* Copyright(C) 2015 Qlik International, All Rights Reserved\n* For support contact: @@QlikTool-Replace:author.name <@@QlikTool-Replace:author.email>\n*/",
 
@@ -35,18 +35,18 @@
   "replace" : {
     "dev" : {
       "files" : [
-        { "src" : "../build/arf-multi-language-labels/arf-multi-language-labels.js", "dest" :  "../build/arf-multi-language-labels/arf-multi-language-labels.js" },
-        { "src" : "../build/arf-multi-language-labels/arf-multi-language-labels.qext", "dest" : "../build/arf-multi-language-labels/arf-multi-language-labels.qext" },
-        { "src" : "../build/arf-multi-language-labels/config/arf-multi-language-labels-properties-panel.js", "dest" : "../build/arf-multi-language-labels/config/arf-multi-language-labels-properties-panel.js" },
-        { "src" : "../build/arf-multi-language-labels/styles/arf-multi-language-labels-style.css", "dest" : "../build/arf-multi-language-labels/styles/arf-multi-language-labels-style.css" }
+        { "src" : "../build/clr-multi-language-labels/clr-multi-language-labels.js", "dest" :  "../build/clr-multi-language-labels/clr-multi-language-labels.js" },
+        { "src" : "../build/clr-multi-language-labels/clr-multi-language-labels.qext", "dest" : "../build/clr-multi-language-labels/clr-multi-language-labels.qext" },
+        { "src" : "../build/clr-multi-language-labels/config/clr-multi-language-labels-properties-panel.js", "dest" : "../build/clr-multi-language-labels/config/clr-multi-language-labels-properties-panel.js" },
+        { "src" : "../build/clr-multi-language-labels/styles/clr-multi-language-labels-style.css", "dest" : "../build/clr-multi-language-labels/styles/clr-multi-language-labels-style.css" }
       ]
     },
     "deploy" : {
       "files" : [
-        { "src" : "../build/arf-multi-language-labels/arf-multi-language-labels.js", "dest" :  "../build/arf-multi-language-labels/arf-multi-language-labels.js" },
-        { "src" : "../build/arf-multi-language-labels/arf-multi-language-labels.qext", "dest" : "../build/arf-multi-language-labels/arf-multi-language-labels.qext" },
-        { "src" : "../build/arf-multi-language-labels/config/arf-multi-language-labels-properties-panel.js", "dest" : "../build/arf-multi-language-labels/config/arf-multi-language-labels-properties-panel.js" },
-        { "src" : "../build/arf-multi-language-labels/styles/arf-multi-language-labels-style.css", "dest" : "../build/arf-multi-language-labels/styles/arf-multi-language-labels-style.css" }
+        { "src" : "../build/clr-multi-language-labels/clr-multi-language-labels.js", "dest" :  "../build/clr-multi-language-labels/clr-multi-language-labels.js" },
+        { "src" : "../build/clr-multi-language-labels/clr-multi-language-labels.qext", "dest" : "../build/clr-multi-language-labels/clr-multi-language-labels.qext" },
+        { "src" : "../build/clr-multi-language-labels/config/clr-multi-language-labels-properties-panel.js", "dest" : "../build/clr-multi-language-labels/config/clr-multi-language-labels-properties-panel.js" },
+        { "src" : "../build/clr-multi-language-labels/styles/clr-multi-language-labels-style.css", "dest" : "../build/clr-multi-language-labels/styles/clr-multi-language-labels-style.css" }
       ]
     }
   },

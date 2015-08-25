@@ -22,4 +22,4 @@ You can reach us by means of the [DL-CSGlobalSense](mailto:DL-CSGlobalSense@qlik
 
 ## Special thanks
 
-I would like to thank Corrado Lorefice for the support and allowing me to refactor and extend the original multilanguage extension
+I would like to thank AF Corrado Lorefice for the support and allowing me to refactor and extend the original multilanguage extension

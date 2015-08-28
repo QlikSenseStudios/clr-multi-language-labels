@@ -32,7 +32,7 @@ function rendering(self, $element, layout) {
   }
 
   var tables = $("th.qv-st-header-cell").filter(function (index) {
-    console.log("index", index);
+    //console.log("index", index);
     return $(".ng-binding", this).length === 1;
   });
 
@@ -126,15 +126,33 @@ define([
     },
 
     controller : ["$scope", "$rootScope", function (s, r) {
-      console.log(s, r);
+        //console.log(s, r);
       r.browserLanguage = prepareBrowserLanguage();
+
+      s.$watch(
+        function () {
+          if (s.layout.showflag) {
+            return {
+              showFlag: s.layout.showflag,
+              showLanguage: s.layout.showlanguage
+            };
+          }
+        },
+        function (newValue, oldValue) {
+          if (newValue.showFlag !== oldValue.showFlag) {
+            console.log("showflag", newValue.showFlag, oldValue.showFlag);
+          }
+          if (newValue.showLanguage !== oldValue.showLanguage) {
+            console.log("showlanguage", newValue.showLanguage, oldValue.showLanguage);
+          }
+        },
+        true
+      );
     }],
 
 
-     view : {
-      paint : function($element, layout) {
-        console.log($element, layout);
-
+    view : {
+      paint : function ($element, layout) {
         var self = this;
         rendering(self, $element, layout);
       }
@@ -142,4 +160,6 @@ define([
   };
 
 });
+
+
 

@@ -12,16 +12,16 @@ define(function () {
   "use strict";
 
   return {
+    version : 1.0,
     qHyperCubeDef : {
-      version : 1.0,
       qDimensions : [],
-      qInterColumnSortOrder : [0,1,2],
+      qInterColumnSortOrder : [],
       qInitialDataFetch : [
         {
-          "qLeft" : 0,
-          "qTop" : 0,
-          "qWidth" : 3,
-          "qHeight" : 10000
+          qLeft : 0,
+          qTop : 0,
+          qWidth : 3,
+          qHeight : 3300
         }
       ]
     }

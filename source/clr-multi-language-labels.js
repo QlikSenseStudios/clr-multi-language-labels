@@ -9,84 +9,6 @@
  * @author      @@QlikTool-Replace:author.name <@@QlikTool-Replace:author.email>
  * @author      Corrado Lorefice <Corrado.Lorefice@qlik.com>
  */
-
-
-function rendering(self, $element, layout) {
-  "use strict";
-
-  var id = "container_"+ layout.qInfo.qId;
-
-  if (document.getElementById(id)) { $("#" + id).empty(); }
-  else { $element.append($("<div />").attr("id", id).width($element.width()).height($element.height())); }
-
-  var extDiv = $("#" + id);
-  var showlanguage = layout.showlanguage;
-  var showflag = layout.showflag;
-  var blanguage = self.$scope.$parent.$root.browserLanguage;
-
-  var Search = "", Replace = "", UI = "";
-  var html = "";
-
-  if (showlanguage === "Y") {
-    html += blanguage + "<br>";
-  }
-
-  var tables = $("th.qv-st-header-cell").filter(function (index) {
-    //console.log("index", index);
-    return $(".ng-binding", this).length === 1;
-  });
-
-  //Search data and substitute strings
-  for (var i = 0; i < tables.length; i++) {
-    self.backendApi.eachDataRow(function (rownum, row) {
-      Search = "";
-      Replace = "";
-      row.forEach(function (cell, index) {
-        if (cell.qIsOtherCell) {
-          cell.qText = self.backendApi.getDimensionInfos()[index].othersLabel;
-        }
-        if (index === 0) { Search = cell.qText.trim(); }
-        if (index === 1) { Replace = cell.qText.trim(); }
-        if (index === 2) { UI = cell.qText.trim(); }
-      });
-
-      if (UI.indexOf(blanguage) > -1) {
-        tables[i].textContent = tables[i].textContent.replace(new RegExp("\\b" + Search + "\\b", "g"), Replace);
-      }
-    });
-  }
-
-
-  var titles = $("header[ng-show]").children("h1[ng-attr-title]").children("span[ng-if]");
-    //Search data and substitute strings
-  for (i = 0; i < titles.length; i++) {
-    self.backendApi.eachDataRow(function (rownum, row) {
-      Search = "";
-      Replace = "";
-      row.forEach(function (cell, index) {
-        if (cell.qIsOtherCell) {
-          cell.qText = self.backendApi.getDimensionInfos()[index].othersLabel;
-        }
-        if (index === 0) { Search = cell.qText.trim(); }
-        if (index === 1) { Replace = cell.qText.trim(); }
-        if (index === 2) { UI = cell.qText.trim(); }
-      });
-      if (UI.indexOf(blanguage) > -1) {
-        //html += '<br>' + Search + ':' + Replace + ':' + UI + ';';
-        titles[i].textContent = titles[i].textContent.replace(new RegExp("\\b" + Search + "\\b", "g"), Replace);
-      }
-    });
-  }
-
-  if (showflag === "Y") {
-    html += "<img src=\"/extensions/MultilanguageLabels/flags/flag-" + blanguage + ".png\">";
-  }
-  extDiv.append(html);
-
-}
-
-
-
 define([
   "jquery",
   "text!./styles/clr-multi-language-labels-style.css",
@@ -154,12 +76,76 @@ define([
     view : {
       paint : function ($element, layout) {
         var self = this;
-        rendering(self, $element, layout);
+
+        var id = "container_"+ layout.qInfo.qId;
+
+        if (document.getElementById(id)) { $("#" + id).empty(); }
+        else { $element.append($("<div />").attr("id", id).width($element.width()).height($element.height())); }
+
+        var extDiv = $("#" + id);
+        var showlanguage = layout.showlanguage;
+        var showflag = layout.showflag;
+        var blanguage = self.$scope.$parent.$root.browserLanguage;
+
+        var Search = "",
+          Replace = "",
+          UI = "",
+          html = "";
+
+        if (showlanguage === "Y") {
+          html += blanguage + "<br>";
+        }
+
+        var tables = $("th.qv-st-header-cell").filter(function (index) { return $(".ng-binding", this).length === 1; });
+        //Search data and substitute strings
+        for (var i = 0; i < tables.length; i++) {
+          self.backendApi.eachDataRow(function (rownum, row) {
+            Search = "";
+            Replace = "";
+            row.forEach(function (cell, index) {
+              if (cell.qIsOtherCell) {
+                cell.qText = self.backendApi.getDimensionInfos()[index].othersLabel;
+              }
+              if (index === 0) { Search = cell.qText.trim(); }
+              if (index === 1) { Replace = cell.qText.trim(); }
+              if (index === 2) { UI = cell.qText.trim(); }
+            });
+            if (UI.indexOf(blanguage) > -1) {
+              tables[i].textContent = tables[i].textContent.replace(new RegExp('\\b' + Search + '\\b', "g"), Replace);
+            }
+          });
+        }
+
+
+        var titles = $("header[ng-show]").children("h1[ng-attr-title]").children("span[ng-if]");
+        //Search data and substitute strings
+        for (i = 0; i < titles.length; i++) {
+          self.backendApi.eachDataRow(function (rownum, row) {
+            Search = "";
+            Replace = "";
+            row.forEach(function (cell, index) {
+              if (cell.qIsOtherCell) {
+                cell.qText = self.backendApi.getDimensionInfos()[index].othersLabel;
+              }
+              if (index === 0) { Search = cell.qText.trim(); }
+              if (index === 1) { Replace = cell.qText.trim(); }
+              if (index === 2) { UI = cell.qText.trim(); }
+            });
+            if (UI.indexOf(blanguage) > -1) {
+              //html += '<br>' + Search + ':' + Replace + ':' + UI + ';';
+              titles[i].textContent = titles[i].textContent.replace(new RegExp('\\b' + Search + '\\b', "g"), Replace);
+            }
+          });
+        }
+
+        if (showflag === "Y") {
+          html += "<img src=\"/extensions/MultilanguageLabels/flags/flag-" + blanguage + ".png\">";
+        }
+        extDiv.append(html);
+
       }
     }
   };
 
 });
-
-
 

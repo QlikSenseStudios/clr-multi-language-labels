@@ -11,13 +11,18 @@
 define(function () {
   "use strict";
 
-
   return {
     qHyperCubeDef : {
+      version : 1.0,
       qDimensions : [],
-      qInterColumnSortOrder : [],
+      qInterColumnSortOrder : [0,1,2],
       qInitialDataFetch : [
-        { "qLeft": 0, "qTop": 0, "qWidth" : 1, "qHeight" : 10000 }
+        {
+          "qLeft" : 0,
+          "qTop" : 0,
+          "qWidth" : 3,
+          "qHeight" : 10000
+        }
       ]
     }
   };

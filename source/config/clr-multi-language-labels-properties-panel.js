@@ -62,6 +62,54 @@ define(function () {
                   { value : "Y", label : "Yes", translation : "Yes" }
                 ],
                 defaultValue : "N"
+              },
+              translatetitles : {
+                ref: "translatetitles",
+                type : "string",
+                component : "switch",
+                label : "Translate Titles",
+                translation: "Translate Titles",
+                options : [
+                  { value : "N", label : "No", translation : "No" },
+                  { value : "Y", label : "Yes", translation : "Yes" }
+                ],
+                defaultValue : "N"
+              },
+              translatesubtitles : {
+                ref: "translatesubtitles",
+                type : "string",
+                component : "switch",
+                label : "Translate Sub Titles",
+                translation: "Translate Sub Titles",
+                options : [
+                  { value : "N", label : "No", translation : "No" },
+                  { value : "Y", label : "Yes", translation : "Yes" }
+                ],
+                defaultValue : "N"
+              },
+              translatefooters : {
+                ref: "translatefooters",
+                type : "string",
+                component : "switch",
+                label : "Translate Footers",
+                translation: "Translate Footers",
+                options : [
+                  { value : "N", label : "No", translation : "No" },
+                  { value : "Y", label : "Yes", translation : "Yes" }
+                ],
+                defaultValue : "N"
+              },
+              translateheadercell : {
+                ref: "translateheadercell",
+                type : "string",
+                component : "switch",
+                label : "Translate Cells Headers",
+                translation: "Translate Cells Headers",
+                options : [
+                  { value : "N", label : "No", translation : "No" },
+                  { value : "Y", label : "Yes", translation : "Yes" }
+                ],
+                defaultValue : "N"
               }
             }
           }

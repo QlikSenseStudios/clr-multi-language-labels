@@ -77,6 +77,31 @@ define([
       paint : function ($element, layout) {
         var self = this;
 
+        function domSearchAndReplace (domObj) {
+
+          for (i = 0; i < domObj.length; i++) {
+            self.backendApi.eachDataRow(function (rownum, row) {
+              Search = "";
+              Replace = "";
+              row.forEach(function (cell, index) {
+                if (cell.qIsOtherCell) {
+                  cell.qText = self.backendApi.getDimensionInfos()[index].othersLabel;
+                }
+                if (index === 0) { Search = cell.qText.trim(); }
+                if (index === 1) { Replace = cell.qText.trim(); }
+                if (index === 2) { UI = cell.qText.trim(); }
+              });
+              if (UI.indexOf(blanguage) > -1) {
+                //html += '<br>' + Search + ':' + Replace + ':' + UI + ';';
+                domObj[i].textContent = domObj[i].textContent.replace(new RegExp('\\b' + Search + '\\b', "g"), Replace);
+              }
+            });
+          }
+
+          return domObj;
+        }
+
+
         var id = "container_"+ layout.qInfo.qId;
 
         if (document.getElementById(id)) { $("#" + id).empty(); }
@@ -85,6 +110,10 @@ define([
         var extDiv = $("#" + id);
         var showlanguage = layout.showlanguage;
         var showflag = layout.showflag;
+        var translateheadercell = layout.translateheadercell;
+        var translatetitles = layout.translatetitles;
+        var translatesubtitles = layout.translatesubtitles;
+        var translatefooters = layout.translatefooters;
         var blanguage = self.$scope.$parent.$root.browserLanguage;
 
         var Search = "",
@@ -96,46 +125,41 @@ define([
           html += blanguage + "<br>";
         }
 
-        var tables = $("th.qv-st-header-cell").filter(function (index) { return $(".ng-binding", this).length === 1; });
-        //Search data and substitute strings
-        for (var i = 0; i < tables.length; i++) {
-          self.backendApi.eachDataRow(function (rownum, row) {
-            Search = "";
-            Replace = "";
-            row.forEach(function (cell, index) {
-              if (cell.qIsOtherCell) {
-                cell.qText = self.backendApi.getDimensionInfos()[index].othersLabel;
+        if (translateheadercell === "Y") {
+          var tables = $("th.qv-st-header-cell"); //$("th.qv-st-header-cell").filter(function (index) { return $(".ng-binding", this).length === 1; });
+          //domSearchAndReplace(tables);
+          for (var i = 0; i < tables.length; i++) {
+            self.backendApi.eachDataRow(function (rownum, row) {
+              Search = "";
+              Replace = "";
+              row.forEach(function (cell, index) {
+                if (cell.qIsOtherCell) {
+                  cell.qText = self.backendApi.getDimensionInfos()[index].othersLabel;
+                }
+                if (index === 0) { Search = cell.qText.trim(); }
+                if (index === 1) { Replace = cell.qText.trim(); }
+                if (index === 2) { UI = cell.qText.trim(); }
+              });
+              if (UI.indexOf(blanguage) > -1) {
+                tables[i].textContent = tables[i].textContent.replace(new RegExp('\\b' + Search + '\\b', "g"), Replace);
               }
-              if (index === 0) { Search = cell.qText.trim(); }
-              if (index === 1) { Replace = cell.qText.trim(); }
-              if (index === 2) { UI = cell.qText.trim(); }
             });
-            if (UI.indexOf(blanguage) > -1) {
-              tables[i].textContent = tables[i].textContent.replace(new RegExp('\\b' + Search + '\\b', "g"), Replace);
-            }
-          });
+          }
         }
 
+        if (translatetitles === "Y") {
+          var titles = $(".qv-object-title").children("span[ng-if]");
+          domSearchAndReplace(titles);
+        }
 
-        var titles = $("header[ng-show]").children("h1[ng-attr-title]").children("span[ng-if]");
-        //Search data and substitute strings
-        for (i = 0; i < titles.length; i++) {
-          self.backendApi.eachDataRow(function (rownum, row) {
-            Search = "";
-            Replace = "";
-            row.forEach(function (cell, index) {
-              if (cell.qIsOtherCell) {
-                cell.qText = self.backendApi.getDimensionInfos()[index].othersLabel;
-              }
-              if (index === 0) { Search = cell.qText.trim(); }
-              if (index === 1) { Replace = cell.qText.trim(); }
-              if (index === 2) { UI = cell.qText.trim(); }
-            });
-            if (UI.indexOf(blanguage) > -1) {
-              //html += '<br>' + Search + ':' + Replace + ':' + UI + ';';
-              titles[i].textContent = titles[i].textContent.replace(new RegExp('\\b' + Search + '\\b', "g"), Replace);
-            }
-          });
+        if (translatesubtitles === "Y") {
+          var subtitles = $(".qv-object-subtitle");
+          domSearchAndReplace(subtitles);
+        }
+
+        if (translatefooters === "Y") {
+          var footers = $(".qv-object-footnote");
+          domSearchAndReplace(footers);
         }
 
         if (showflag === "Y") {

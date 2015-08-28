@@ -37,6 +37,7 @@ define(function () {
           options : {
             label: "Options",
             translation: "Options",
+            component: "items",
             items : {
               showlanguage : {
                 ref : "showlanguage",

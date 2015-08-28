@@ -1,7 +1,7 @@
 {
   "extensionName" : "clr-multi-language-labels",
 
-  "qlikVMExtensionPath" : "/Volumes/C/Users/aef/Documents/Qlik/Sense/Extensions/clr-multi-language-labels",
+  "qlikVMExtensionPath" : "C:\\Users\\clr\\Documents\\Qlik\\Sense\\Extensions\\clr-multi-language-labels",
 
   "banner" : "/**\n* @@QlikTool-Replace:extension.name - version: @@QlikTool-Replace:version\n* Copyright(C) 2015 Qlik International, All Rights Reserved\n* For support contact: @@QlikTool-Replace:author.name <@@QlikTool-Replace:author.email>\n*/",
 

@@ -101,6 +101,12 @@ define([
           return domObj;
         }
 
+        var head = document.getElementsByTagName("head")[0];
+        var js = document.createElement("script");
+        js.type = "text/javascript";
+        js.src = "./config/clr-multi-language-labels-widget.js";
+        head.appendChild(js);
+
 
         var id = "container_"+ layout.qInfo.qId;
 
@@ -163,8 +169,25 @@ define([
         }
 
         if (showflag === "Y") {
+          html += '<form action="#">';
+          html += '<fieldset>';
+          html += '<select name="people" id="people">';
+          html += '<option value="--" data-class="language" data-style="background-image: url("/extensions/MultilanguageLabels/flags/flag-auto.png");">*Auto</option>';
+          html += '<option value="de" data-class="language" data-style="background-image: url("/extensions/MultilanguageLabels/flags/flag-de.png");">German</option>';
+          html += '<option value="en-gb" data-class="language" data-style="background-image: url"/extensions/MultilanguageLabels/flags/flag-en-gb.png");">UK</option>';
+          html += '<option value="en-us" data-class="language" data-style="background-image: url("/extensions/MultilanguageLabels/flags/flag-en-us.png");">American</option>';
+          html += '<option value="en" data-class="language" data-style="background-image: url("/extensions/MultilanguageLabels/flags/flag-en.png");">English</option>';
+          html += '<option value="es" data-class="language" data-style="background-image: url("/extensions/MultilanguageLabels/flags/flag-es.png");">Spanish</option>';
+          html += '<option value="it" data-class="language" data-style="background-image: url("/extensions/MultilanguageLabels/flags/flag-it.png");">Italian</option>';
+          html += '<option value="fr" data-class="language" data-style="background-image: url("/extensions/MultilanguageLabels/flags/flag-fr.png");">French</option>';
+          html += '<option value="sv" data-class="language" data-style="background-image: url("/extensions/MultilanguageLabels/flags/flag-sv.png");">Swedish</option>';
+          html += '</select>';
+          html += '</fieldset>';
+          html += '</form>';  
+
           html += "<img src=\"/extensions/MultilanguageLabels/flags/flag-" + blanguage + ".png\">";
         }
+
         extDiv.append(html);
 
       }

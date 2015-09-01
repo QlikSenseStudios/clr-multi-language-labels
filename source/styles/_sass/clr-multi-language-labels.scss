@@ -4,3 +4,53 @@
   background-color: #FFF;
   background-repeat: no-repeat;
 }
+
+fieldset {
+  border: 0;
+}
+
+label {
+  display: block;
+}
+
+select {
+  width: 100px;
+}
+
+/* select with custom icons */
+.ui-selectmenu-menu .ui-menu.customicons .ui-menu-item {
+  padding: 0.5em 0 0.5em 3em;
+}
+
+.ui-selectmenu-menu .ui-menu.customicons .ui-menu-item .ui-icon {
+  height: 12px;
+  width: 12px;
+  top: 0.1em;
+}
+
+
+
+/* select with CSS avatar icons */
+option.language {
+  background-repeat: no-repeat !important;
+  padding-left: 10px;
+}
+
+.language .ui-icon {
+  background-position: left top;
+}
+
+.ui-selectmenu-button span.ui-selectmenu-text {
+  text-align: left;
+  padding: 0.2em 1.1em 0.1em 0.5em;
+  display: block;
+  line-height: 1.0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ui-widget {
+  font-family: Verdana,Arial,sans-serif;
+  font-size: 0.7em;
+}

@@ -110,6 +110,18 @@ define(function () {
                   { value : "Y", label : "Yes", translation : "Yes" }
                 ],
                 defaultValue : "N"
+              },
+              showlanguagechoice: {
+                ref: "showlanguagechoice",
+                type : "string",
+                component : "switch",
+                label : "Enable user to change language",
+                translation: "Enable user to change language",
+                options : [
+                  { value : "N", label : "No", translation : "No" },
+                  { value : "Y", label : "Yes", translation : "Yes" }
+                ],
+                defaultValue : "N"
               }
             }
           }

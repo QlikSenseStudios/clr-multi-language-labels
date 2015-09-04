@@ -74,23 +74,6 @@ define([
         },
         true
       );
-      
-      //s.$watch(
-      //  function () {
-      //    if (self.document.getElementById("clr-multi-language-labels-language").value) {
-      //      return {
-      //        changeLanguage: self.document.getElementById("clr-multi-language-labels-language").value
-      //      };
-      //    }
-      //  },
-      //  function (newValue, oldValue) {
-      //    if (newValue.changeLanguage !== oldValue.changeLanguage) {
-      //      //console.log("changeLanguage", newValue.changeLanguage, oldValue.changeLanguage);
-      //      r.languagechoice = newValue.changeLanguage;
-      //    }
-      //  },
-      //  true
-      //);
 
     }],
 
@@ -123,10 +106,10 @@ define([
                     if (cell.qIsOtherCell) {
                       cell.qText = self.backendApi.getDimensionInfos()[index].othersLabel;
                     }
-                    if (index === 0 && translationDirection == false) { Search = cell.qText.trim(); }
-                    if (index === 1 && translationDirection == false) { Replace = cell.qText.trim(); }
-                    if (index === 1 && translationDirection == true) { Search = cell.qText.trim(); }
-                    if (index === 0 && translationDirection == true) { Replace = cell.qText.trim(); }
+                    if (index === 0 && translationDirection === false) { Search = cell.qText.trim(); }
+                    if (index === 1 && translationDirection === false) { Replace = cell.qText.trim(); }
+                    if (index === 1 && translationDirection === true) { Search = cell.qText.trim(); }
+                    if (index === 0 && translationDirection === true) { Replace = cell.qText.trim(); }
                     if (index === 2) { UI = cell.qText.trim(); }
                   });
                   if (UI.indexOf(blanguage) > -1) {
@@ -148,10 +131,10 @@ define([
                     if (cell.qIsOtherCell) {
                       cell.qText = self.backendApi.getDimensionInfos()[index].othersLabel;
                     }
-                    if (index === 0 && translationDirection == false) { Search = cell.qText.trim(); }
-                    if (index === 1 && translationDirection == false) { Replace = cell.qText.trim(); }
-                    if (index === 1 && translationDirection == true) { Search = cell.qText.trim(); }
-                    if (index === 0 && translationDirection == true) { Replace = cell.qText.trim(); }
+                    if (index === 0 && translationDirection === false) { Search = cell.qText.trim(); }
+                    if (index === 1 && translationDirection === false) { Replace = cell.qText.trim(); }
+                    if (index === 1 && translationDirection === true) { Search = cell.qText.trim(); }
+                    if (index === 0 && translationDirection === true) { Replace = cell.qText.trim(); }
                     if (index === 2) { UI = cell.qText.trim(); }
                   });
                   if (UI.indexOf(blanguage) > -1) {
@@ -210,27 +193,27 @@ define([
           if (showlanguagechoice === "Y") {
             html += '<fieldset>';
             html += '<select name="clr-multi-language-labels-language" id="clr-multi-language-labels-language">';
-            for (var o = 0; o < 8; o++) {
-              if (o == 0 && languagechoice == "--") html += '<option value="--" data-class="language">*Auto</option>';
-              if (o == 0 && languagechoice == "de") html += '<option value="de" data-class="language">German</option>';
-              if (o == 0 && languagechoice == "en-gb") html += '<option value="en-gb" data-class="language">UK</option>';
+            for (var o = 0; o < 10; o++) {
               if (o == 0 && languagechoice == "en-us") html += '<option value="en-us" data-class="language">American</option>';
+              if (o == 0 && languagechoice == "zh") html += '<option value="zh" data-class="language">Chinese</option>';
               if (o == 0 && languagechoice == "en") html += '<option value="en" data-class="language">English</option>';
-              if (o == 0 && languagechoice == "es") html += '<option value="es" data-class="language">Spanish</option>';
-              if (o == 0 && languagechoice == "it") html += '<option value="it" data-class="language">Italian</option>';
               if (o == 0 && languagechoice == "fr") html += '<option value="fr" data-class="language">French</option>';
+              if (o == 0 && languagechoice == "de") html += '<option value="de" data-class="language">German</option>';
+              if (o == 0 && languagechoice == "it") html += '<option value="it" data-class="language">Italian</option>';
+              if (o == 0 && languagechoice == "es") html += '<option value="es" data-class="language">Spanish</option>';
               if (o == 0 && languagechoice == "sv") html += '<option value="sv" data-class="language">Swedish</option>';
+              if (o == 0 && languagechoice == "en-gb") html += '<option value="en-gb" data-class="language">UK</option>';
             }
-            for (var o = 0; o < 8; o++) {
-              if (languagechoice != "--" && o == 0) html += '<option value="--" data-class="language">*Auto</option>';
-              if (languagechoice != "de" && o == 1) html += '<option value="de" data-class="language">German</option>';
-              if (languagechoice != "en-gb" && o == 2) html += '<option value="en-gb" data-class="language">UK</option>';
-              if (languagechoice != "en-us" && o == 3) html += '<option value="en-us" data-class="language">American</option>';
-              if (languagechoice != "en" && o == 4) html += '<option value="en" data-class="language">English</option>';
-              if (languagechoice != "es" && o == 5) html += '<option value="es" data-class="language">Spanish</option>';
+            for (var o = 0; o < 10; o++) {
+              if (languagechoice != "en-us" && o == 1) html += '<option value="en-us" data-class="language">American</option>';
+              if (languagechoice != "zh" && o == 2) html += '<option value="zh" data-class="language">Chinese</option>';
+              if (languagechoice != "en" && o == 3) html += '<option value="en" data-class="language">English</option>';
+              if (languagechoice != "fr" && o == 4) html += '<option value="fr" data-class="language">French</option>';
+              if (languagechoice != "de" && o == 5) html += '<option value="de" data-class="language">German</option>';
               if (languagechoice != "it" && o == 6) html += '<option value="it" data-class="language">Italian</option>';
-              if (languagechoice != "fr" && o == 7) html += '<option value="fr" data-class="language">French</option>';
+              if (languagechoice != "es" && o == 7) html += '<option value="es" data-class="language">Spanish</option>';
               if (languagechoice != "sv" && o == 8) html += '<option value="sv" data-class="language">Swedish</option>';
+              if (languagechoice != "en-gb" && o == 9) html += '<option value="en-gb" data-class="language">UK</option>';
             }
 
             html += '</select>';
@@ -244,24 +227,50 @@ define([
           extDiv.append(html);
 
           if (showlanguagechoice === "Y") {
-            self.$scope.$watch(
-              function () {
-                if (document.getElementById("clr-multi-language-labels-language").value) {
-                  return {
-                    changeLanguage: document.getElementById("clr-multi-language-labels-language").value
-                  };
-                }
-              },
-              function (newValue, oldValue) {
-                if (newValue.changeLanguage !== oldValue.changeLanguage) {
-                  self.$scope.$parent.$root.languagechoice = newValue.changeLanguage;
-                  translate(true);
-                  self.$scope.$parent.$root.browserLanguage = newValue.changeLanguage;
-                  createContainer();
-                }
-              },
-              true
-            );
+
+            //self.$scope.$parent.$root.paginationWatch;
+            //self.$scope.pagination = function() {
+            if (self.$scope.$parent.$root.paginationWatch) //check for watch exists
+              self.$scope.$parent.$root.paginationWatch(); //this line will destruct watch if its already there
+              self.$scope.$parent.$root.paginationWatch = self.$scope.$watch(function () {
+                    if (document.getElementById("clr-multi-language-labels-language").value) {
+                      return {
+                        changeLanguage: document.getElementById("clr-multi-language-labels-language").value
+                      };
+                    }
+                  },
+                  function (newValue, oldValue) {
+                    if (newValue.changeLanguage !== oldValue.changeLanguage) {
+                      self.$scope.$parent.$root.languagechoice = newValue.changeLanguage;
+                      translate(true);
+                      self.$scope.$parent.$root.browserLanguage = newValue.changeLanguage;
+                      createContainer();
+                    }
+                  },
+                  true
+                );
+            //};
+
+            //self.$scope.$watch(
+            //  function () {
+            //    if (document.getElementById("clr-multi-language-labels-language").value) {
+            //      self.$scope.$parent.$root.languagechoicewatch = true;
+            //      return {
+            //        changeLanguage: document.getElementById("clr-multi-language-labels-language").value
+            //      };
+            //    }
+            //  },
+            //  function (newValue, oldValue) {
+            //    if (newValue.changeLanguage !== oldValue.changeLanguage) {
+            //      self.$scope.$parent.$root.languagechoice = newValue.changeLanguage;
+            //      translate(true);
+            //      self.$scope.$parent.$root.browserLanguage = newValue.changeLanguage;
+            //      createContainer();
+            //    }
+            //  },
+            //  true
+            //);
+
           }
 
         }

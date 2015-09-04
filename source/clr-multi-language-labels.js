@@ -228,48 +228,25 @@ define([
 
           if (showlanguagechoice === "Y") {
 
-            //self.$scope.$parent.$root.paginationWatch;
-            //self.$scope.pagination = function() {
-            if (self.$scope.$parent.$root.paginationWatch) //check for watch exists
-              self.$scope.$parent.$root.paginationWatch(); //this line will destruct watch if its already there
-              self.$scope.$parent.$root.paginationWatch = self.$scope.$watch(function () {
-                    if (document.getElementById("clr-multi-language-labels-language").value) {
-                      return {
-                        changeLanguage: document.getElementById("clr-multi-language-labels-language").value
-                      };
-                    }
-                  },
-                  function (newValue, oldValue) {
-                    if (newValue.changeLanguage !== oldValue.changeLanguage) {
-                      self.$scope.$parent.$root.languagechoice = newValue.changeLanguage;
-                      translate(true);
-                      self.$scope.$parent.$root.browserLanguage = newValue.changeLanguage;
-                      createContainer();
-                    }
-                  },
-                  true
-                );
-            //};
-
-            //self.$scope.$watch(
-            //  function () {
-            //    if (document.getElementById("clr-multi-language-labels-language").value) {
-            //      self.$scope.$parent.$root.languagechoicewatch = true;
-            //      return {
-            //        changeLanguage: document.getElementById("clr-multi-language-labels-language").value
-            //      };
-            //    }
-            //  },
-            //  function (newValue, oldValue) {
-            //    if (newValue.changeLanguage !== oldValue.changeLanguage) {
-            //      self.$scope.$parent.$root.languagechoice = newValue.changeLanguage;
-            //      translate(true);
-            //      self.$scope.$parent.$root.browserLanguage = newValue.changeLanguage;
-            //      createContainer();
-            //    }
-            //  },
-            //  true
-            //);
+            if (self.$scope.$parent.$root.languageWatch) //check for watch exists
+              self.$scope.$parent.$root.languageWatch(); //this line will destruct watch if its already there
+            self.$scope.$parent.$root.languageWatch = self.$scope.$watch(function () {
+                if (document.getElementById("clr-multi-language-labels-language").value) {
+                  return {
+                    changeLanguage: document.getElementById("clr-multi-language-labels-language").value
+                  };
+                }
+              },
+              function (newValue, oldValue) {
+                if (newValue.changeLanguage !== oldValue.changeLanguage) {
+                  self.$scope.$parent.$root.languagechoice = newValue.changeLanguage;
+                  translate(true);
+                  self.$scope.$parent.$root.browserLanguage = newValue.changeLanguage;
+                  createContainer();
+                }
+              },
+              true
+            );
 
           }
 

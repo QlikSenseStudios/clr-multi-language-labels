@@ -14,7 +14,7 @@ Description of extension goes here
 
 **QMC**: Upload the **arf-multilanguage.zip** from the list folder to the QMC
 
-**Demo**: Use the ***arf-multilanguage-demo.qvf** Qlik Sense application for an extension demo.
+**Demo**: Use the **MultilanguageLabels.qvf** Qlik Sense application for an extension demo.
 
 ## Contacts
 
